@@ -9,5 +9,8 @@ public class Main {
         System.out.println("두번째 양의 정수를 입력하세요: ");
         int intBox2 = scanner.nextInt();
 
+        System.out.println("사칙연산 기호를 입력하세요: ");
+        String operator = scanner.next();
+
     }
 }
