@@ -37,6 +37,7 @@ public class Main {
                 }
                 break;
         }
-        System.out.println("결과: " + result);
+            if (!(intBox3.equals("/") && intBox2 == 0))
+                System.out.println("결과: " + result);
     }
 }
