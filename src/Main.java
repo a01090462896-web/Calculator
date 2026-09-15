@@ -31,7 +31,7 @@ public class Main {
                 break;
             case "/":
                 if (intBox2 == 0) {
-                    System.out.println("나눗셈 연산에서 분모에 0이 입력될 수없습니다.");
+                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에는 0이 입력될 수없습니다.");
                 } else {
                     result = intBox / intBox2;
                 }
