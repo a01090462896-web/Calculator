@@ -15,5 +15,28 @@ public class Main {
         System.out.println("사칙연산 기호를 입력하세요: ");
         String intBox3 = scanner.next();
         System.out.println("intBox3 = " + intBox3);
+
+        int result = 0;
+
+        switch (intBox3) {
+
+            case "+":
+                result = intBox + intBox2;
+                break;
+            case "-":
+                result = intBox - intBox2;
+                break;
+            case "*":
+                result = intBox * intBox2;
+                break;
+            case "/":
+                if (intBox2 == 0) {
+                    System.out.println("나눗셈 연산에서 분모에 0이 입력될 수없습니다.");
+                } else {
+                    result = intBox / intBox2;
+                }
+                break;
+        }
+        System.out.println("결과: " + result);
     }
 }
