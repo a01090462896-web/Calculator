@@ -13,7 +13,7 @@ public class Main {
             // 첫번째 정수 입력 및 음수 검사
             System.out.println("첫번쨰 양의 정수를 입력하세요. ");
             int num1 = scanner.nextInt();
-            if (num1 <0 ) {
+            if (num1 < 0) {
                 System.out.println("양의 정수만 입력 가능합니다.");
                 continue;
             }
@@ -36,6 +36,13 @@ public class Main {
             int result = calculator.calculate(num1, num2, operator);
 
             System.out.println("결과: " + result);
+            break;
+        }
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료");
+        String exitCheck = scanner.next();
+
+        if (exitCheck.equals("exit")) {
+            System.out.println("계산기를 종료합니다.");
             break;
         }
     }
