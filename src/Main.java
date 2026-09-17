@@ -4,18 +4,18 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        // 첫 번째 정수 입력 및 음수 검사
+        System.out.println("첫번쨰 양의 정수를 입력하세요: ");
+        int intBox = scanner.nextInt();
+        System.out.println("intBox = " + intBox);
+
+        if (intBox < 0) {
+            System.out.println("양의 정수만 입력 가능합니다");
+            continue;
+        }
+
+        // 두 번째 정수 입력 및 음수 검사
         while (true) {
-            // 첫 번째 정수 입력 및 음수 검사
-            System.out.println("첫번쨰 양의 정수를 입력하세요: ");
-            int intBox = scanner.nextInt();
-            System.out.println("intBox = " + intBox);
-
-            if (intBox < 0) {
-                System.out.println("양의 정수만 입력 가능합니다");
-                continue;
-            }
-
-            // 두 번째 정수 입력 및 음수 검사
             System.out.println("두번째 양의 정수를 입력하세요: ");
             int intBox2 = scanner.nextInt();
             System.out.println("intBox2 = " + intBox2);
@@ -24,7 +24,7 @@ public class Main {
                 System.out.println("양의 정수만 입력 가능합니다");
                 continue;
             }
-
+            break;
             System.out.println("사칙연산 기호를 입력하세요: ");
             String operator = scanner.next();
             System.out.println("intBox3 = " + operator);
