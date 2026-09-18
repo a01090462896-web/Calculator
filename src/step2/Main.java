@@ -19,7 +19,7 @@ public class Main {
             }
 
             // 두 번째 정수 입렵 및 음수 검사
-            int num2 = scanner.nextInt();
+            int num2;
             while (true) {
                 System.out.println("두번째 양의 정수를 입력하세요.");
                 num2 = scanner.nextInt();
@@ -34,16 +34,26 @@ public class Main {
 
             // 계산 실행
             int result = calculator.calculate(num1, num2, operator);
-
             System.out.println("결과: " + result);
-            break;
-        }
-            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료");
-        String exitCheck = scanner.next();
 
-        if (exitCheck.equals("exit")) {
-            System.out.println("계산기를 종료합니다.");
-            break;
+            // 저장된 결과 목록 확인
+            System.out.println("저장된 결과 목록: " + calculator.getResultList());
+
+            // 기록 삭제 테스트
+            System.out.println("가장 오래된 기록을 지우려면 remove를 입력 (넘어가려면 아무거나 입렵): ");
+            String commad = scanner.next();
+            if (commad.equals("remove")) {
+                calculator.removeResult();
+                System.out.println("삭제 후 목록: " + calculator.getResultList());
+            }
+
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료");
+            String exitCheck = scanner.next();
+
+            if (exitCheck.equals("exit")) {
+                System.out.println("계산기를 종료합니다.");
+                break;
+            }
         }
     }
 }

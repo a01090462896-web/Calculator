@@ -27,4 +27,19 @@ public class Calculator {
 
         return result;
     }
+
+    public List<Integer> getResultList() {
+        return resultList;
+    }
+
+    public void setResultList(List<Integer> resultList) {
+        this.resultList = resultList;
+    }
+
+    // 저장된 기록 삭제하는 메서드
+    public void removeResult() {
+        if (!resultList.isEmpty()) {
+            resultList.remove(0);
+        }
+    }
 }
