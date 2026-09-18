@@ -32,6 +32,12 @@ public class Main {
             System.out.println("사칙연산을 입력하세요");
             char operator = scanner.next().charAt(0);
 
+            // 0으로 나누기 예외 처리
+            if (operator == '/' && num2 == 0) {
+                System.out.println("나눗셈 연산에서 분모(두번째 정수)에는 0이 입력될 수없습니다.");
+                continue;
+            }
+
             // 계산 실행
             int result = calculator.calculate(num1, num2, operator);
             System.out.println("결과: " + result);
