@@ -62,4 +62,9 @@ public class ArithmeticCalculator <T extends Number> {
             resultList.remove(0);
         }
     }
+    public void printResultsGreaterThan(double threshold) {
+        resultList.stream()
+                .filter(result -> result > threshold)
+                .forEach(System.out::println);
+    }
 }
