@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Calculator calculator = new Calculator();
+        ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
 
         while (true) {
             // 첫번째 정수 입력 및 음수 검사
@@ -32,6 +32,25 @@ public class App {
             System.out.println("사칙연산을 입력하세요");
             char operator = scanner.next().charAt(0);
 
+            ArithmeticCalculator.OperatorType operatorType = null;
+            switch (operator) {
+                case '+':
+                    operatorType = ArithmeticCalculator.OperatorType.PLUS;
+                    break;
+                case '-':
+                    operatorType = ArithmeticCalculator.OperatorType.MINUS;
+                    break;
+                case '*':
+                    operatorType = ArithmeticCalculator.OperatorType.MULTIPLY;
+                    break;
+                case '/':
+                    operatorType = ArithmeticCalculator.OperatorType.DIVIDE;
+                    break;
+                default:
+                    System.out.println("잘못된 연산자입니다.");
+                    continue;
+            }
+
             // 0으로 나누기 예외 처리
             if (operator == '/' && num2 == 0) {
                 System.out.println("나눗셈 연산에서 분모(두번째 정수)에는 0이 입력될 수없습니다.");
@@ -39,8 +58,13 @@ public class App {
             }
 
             // 계산 실행
-            int result = calculator.calculate(num1, num2, operator);
-            System.out.println("결과: " + result);
+            try {
+                double result = calculator.calculate((double) num1, (double) num2, operatorType);
+                System.out.println("결과: " + result);
+            } catch (ArithmeticException e) {
+                System.out.println(e.getMessage());
+                continue;
+            }
 
             // 저장된 결과 목록 확인
             System.out.println("저장된 결과 목록: " + calculator.getResultList());
