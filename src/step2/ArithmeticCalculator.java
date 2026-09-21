@@ -6,41 +6,17 @@ import java.util.List;
 public class ArithmeticCalculator {
     private List<Integer> resultList = new ArrayList<>();
 
-    public enum OperatorType {
-        PLUS('+'),
-        MINUS('-'),
-        MULTIPLY('*'),
-        DIVIDE('/');
-
-        private final char symbol;
-
-        OperatorType(char symbol) {
-            this.symbol = symbol;
-        }
-
-        public char getSymbol() {
-            return symbol;
-        }
-    }
-
-    public int calculate(int num1, int num2, OperatorType operator) {
         int result = 0;
-
         switch (operator) {
-            case PLUS:
                 result = num1 + num2;
                 break;
-            case MINUS:
                 result = num1 - num2;
                 break;
-            case MULTIPLY:
                 result = num1 * num2;
                 break;
-            case DIVIDE:
                 result = num1 / num2;
                 break;
         }
-
         resultList.add(result);
         return result;
     }
