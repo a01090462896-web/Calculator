@@ -3,8 +3,8 @@ package step2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArithmeticCalculator {
-    private List<Integer> resultList = new ArrayList<>();
+public class ArithmeticCalculator <T extends Number> {
+    private List<Double> resultList = new ArrayList<>();
 
     public enum OperatorType {
         PLUS('+'),
@@ -21,31 +21,37 @@ public class ArithmeticCalculator {
             return symbol;
         }
     }
-    public int calculate(int num1, int num2, OperatorType operator) {
-        int result = 0;
+    public double calculate(T num1, T num2, OperatorType operator) {
+        double n1 = num1.doubleValue();
+        double n2 = num2.doubleValue();
+        double result = 0;
+
         switch (operator) {
             case PLUS:
-                result = num1 + num2;
+                result = n1 + n2;
                 break;
             case MINUS:
-                result = num1 - num2;
+                result = n1 - n2;
                 break;
             case MULTIPLY:
-                result = num1 * num2;
+                result = n1 * n2;
                 break;
             case DIVIDE:
-                result = num1 / num2;
+                if (n2 == 0) {
+                    throw new ArithmeticException("0으로 나눌 수 없습니다.");
+                }
+                result = n1 / n2;
                 break;
         }
         resultList.add(result);
         return result;
     }
 
-    public List<Integer> getResultList() {
+    public List<Double> getResultList() {
         return resultList;
     }
 
-    public void setResultList(List<Integer> resultList) {
+    public void setResultList(List<Double> resultList) {
         this.resultList = resultList;
     }
 
