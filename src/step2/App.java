@@ -77,6 +77,14 @@ public class App {
                 System.out.println("삭제 후 목록: " + calculator.getResultList());
             }
 
+            System.out.println("입력한 값보다 큰 결과값들을 조회하겠습니까? (yes 입력 시 조회)");
+            String choice = scanner.next();
+            if (choice.equals("yes")) {
+                System.out.println("기준이 될 숫자 입력하세요: ");
+                double threshold = scanner.nextDouble();
+                System.out.println(threshold + "보다 큰 결과 목록: " + calculator.getResultsGreaterThan(threshold));
+            }
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료");
             String exitCheck = scanner.next();
 
