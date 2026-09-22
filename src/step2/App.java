@@ -2,7 +2,24 @@ package step2;
 
 import java.util.Scanner;
 
+// 문자가 입력되거나 음수 입력시 예외 처리 수행
 public class App {
+    public static double inputNumber(Scanner scanner, String message) {
+        while (true) {
+            System.out.println(message);
+            String input = scanner.next();
+            try {
+                double number = Double.parseDouble(input);
+                if (number < 0) {
+                    System.out.println("양의 정수만 입력 가능합니다.");
+                    continue;
+                }
+                return number;
+            } catch (NumberFormatException e) {
+                System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
+            }
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -10,25 +27,12 @@ public class App {
         ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
 
         while (true) {
-            // 첫번째 정수 입력 및 음수 검사
-            System.out.println("첫번쨰 양의 정수를 입력하세요. ");
-            int num1 = scanner.nextInt();
-            if (num1 < 0) {
-                System.out.println("양의 정수만 입력 가능합니다.");
-                continue;
-            }
+            // 첫번째 정수 입력
+            double num1 = inputNumber(scanner, "첫번쨰 양의 정수를 입력하세요.");
+            // 두번째 정수 입력
+            double num2 = inputNumber(scanner, "두번쨰 양의 정수를 입력하세요.");
 
-            // 두 번째 정수 입렵 및 음수 검사
-            int num2;
-            while (true) {
-                System.out.println("두번째 양의 정수를 입력하세요.");
-                num2 = scanner.nextInt();
-                if (num2 < 0) {
-                    System.out.println("양의 정수만 입력 가능합니다.");
-                    continue;
-                }
-                break;
-            }
+
             System.out.println("사칙연산을 입력하세요");
             char operator = scanner.next().charAt(0);
 
